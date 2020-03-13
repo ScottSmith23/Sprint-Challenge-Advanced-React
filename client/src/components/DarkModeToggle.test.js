@@ -5,3 +5,4 @@ import DarkModeToggle from "./DarkModeToggle"
 test('renders DarkModeToggle without crashing', () => {
   rtl.render(<DarkModeToggle />);
 });
+
