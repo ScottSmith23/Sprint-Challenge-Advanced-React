@@ -1,6 +1,7 @@
 import React from 'react';
 import {useLocalStorage} from "./hooks/useLocalStorage"
 import PlayerList from "./components/PlayerList"
+import DarkModeToggle from "./components/DarkModeToggle"
 import axios from 'axios';
 import './App.css';
 
@@ -28,7 +29,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <h1>Soccer Womens</h1>
+        <DarkModeToggle />
         <PlayerList players={this.state.players}/>
       </div>
     );

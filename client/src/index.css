@@ -5,6 +5,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  width: 94.3%;
+  font-family: 'Baloo Chettan 2', cursive;
 }
 
 code {
