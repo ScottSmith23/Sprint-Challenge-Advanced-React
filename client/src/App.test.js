@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import { render, fireEvent } from "@testing-library/react";
+import '@testing-library/jest-dom/extend-expect';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
@@ -34,8 +35,10 @@ test("searchForm submits", () => {
 
   // // assertion
   const result = findAllByText(/alex/i);
-  // expect(result).toBeInTheDocument();
-  var test = document.querySelectorAll('div[value][data-testid="testID"]:not([value=""])');
-  expect(document.querySelector('div')).toBeInTheDocument()
   console.log(result)
+  // expect(result).toBeInTheDocument();
+  // var test = document.querySelectorAll('div[value][data-testid="testID"]:not([value=""])');
+  // expect(document.querySelectorAll('div')).toBeInTheDocument()
+  // let stuff = document.querySelectorAll('div')
+  
 });
