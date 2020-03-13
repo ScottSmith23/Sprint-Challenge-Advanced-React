@@ -8,15 +8,19 @@ it('renders without crashing', () => {
   ReactDOM.render(<App />, div);
   ReactDOM.unmountComponentAtNode(div);
 });
+test('searchform input is rendered', () => {
+const { getByLabelText} = render(<App />);
 
-test("searchForm", () => {
+const nameInput = getByLabelText(/Search Players/i);
+});
+test("searchForm submits", () => {
   const { getByLabelText, getByText, findAllByText,getByTestId } = render(<App />);
 
   // query for the form inputs
   const nameInput = getByLabelText(/Search Players/i);
 
   fireEvent.change(nameInput, {
-    target: { name: "nameInput", value: "Mart" }
+    target: { name: "nameInput", value: "Alex" }
   });
 
 
@@ -29,7 +33,9 @@ test("searchForm", () => {
   fireEvent.click(submitButton);
 
   // // assertion
-  const result = getByTestId(/Marta/i);
-  expect(result).toBeInTheDocument();
+  const result = findAllByText(/alex/i);
+  // expect(result).toBeInTheDocument();
+  var test = document.querySelectorAll('div[value][data-testid="testID"]:not([value=""])');
+  expect(document.querySelector('div')).toBeInTheDocument()
   console.log(result)
 });

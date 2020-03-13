@@ -5,7 +5,7 @@ const PlayerList = ({players}) => {
   return (
     <div className="players">
           {(players || []).map(player => (
-          <div data-testid={player.name} id={player.id} className="playerCard">
+          <div data-testid="testID" id={player.id} className="playerCard">
           <h3>{player.name}</h3>
           <p>Country: {player.country}</p>
           <p>Searches: {player.searches}</p>
