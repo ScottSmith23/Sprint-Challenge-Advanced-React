@@ -1,5 +1,4 @@
 import React from 'react';
-import {useLocalStorage} from "./hooks/useLocalStorage"
 import PlayerList from "./components/PlayerList"
 import DarkModeToggle from "./components/DarkModeToggle"
 import axios from 'axios';
@@ -36,9 +35,13 @@ class App extends React.Component {
     e.preventDefault();
     axios
       .get(`http://localhost:5000/api/players`)
-      .then(res => {
+      .then(response => { 
+        let playerSearched = response.data.filter(player =>
+            player.name.toLowerCase().includes(this.state.searchText.toLowerCase())
+          );
         this.setState({
-          doggos: res.data
+          players: playerSearched,
+          searchText: ""
         });
       })
       .catch(err => console.log(err.message));
@@ -48,9 +51,11 @@ class App extends React.Component {
     return (
       <div className="App">
         <DarkModeToggle />
-        <label htmlFor="playerSearch">Search Players</label>
-        <input id="playerSearch" value={this.state.searchText} onChange={this.handleChanges} />
+        <div className="searchForm">
+        <label htmlFor="playerSearch">Search Players </label>
+        <input id="playerSearch" name="playerSearch" value={this.state.searchText} onChange={this.handleChanges} />
         <button onClick={this.searchPlayers}>Search!</button>
+        </div>
         <PlayerList players={this.state.players}/>
       </div>
     );

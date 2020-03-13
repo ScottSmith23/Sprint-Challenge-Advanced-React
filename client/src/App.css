@@ -92,3 +92,7 @@
   background-image: linear-gradient(#4e8afa,rgb(147, 176, 238));
   border-radius: 20px;
 }
+
+.searchForm{
+  margin-top: 30px;
+}
